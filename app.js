@@ -62,7 +62,7 @@ yargs.command({
         }
     },
     handler:(argv)=>{
-        system.readStd(argv)
+        system.readStd(argv.id)
     }
 })
 

@@ -4,7 +4,7 @@ const ch = require('chalk')
 const addStd = (std)=>{
     const stds = loadStds()
     const dublicatId = stds.find((std1)=>{
-        return std1.id === std.id
+        return std.id === std1.id
     })
     if (!dublicatId){
         stds.push(std)
@@ -45,8 +45,8 @@ const readStd = (id)=>{
 
 const listStd = ()=>{
     const stds = loadStds()
-    if (stds.length === 0){
-        console.log(ch.white.bgYellow.bold('No Student Add Yet`'))
+    if (stds.length !== 0){
+        console.log(ch.red.bgYellow.bold('No Student Added Yet'))
     }else{
         stds.forEach((std)=>{
             console.log(ch.white.bgGreen.bold.italic(std))
@@ -69,7 +69,7 @@ const saveStds = (stds)=>{
     fs.writeFileSync('Students.json',stdsJson)
 }
 
-module.export = {
+module.exports= {
     addStd,
     deleteStd,
     readStd,
